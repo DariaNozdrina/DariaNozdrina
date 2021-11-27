@@ -57,7 +57,7 @@ export function listCoinsPromise() {
 
 export function serialize(a, b, c) {
 
-    let total = a.concat(b).concat(c);
+   let res=[];
     const promise1 = new Promise((resolve, reject) => {
         setTimeout(resolve, 100, a);
     });
@@ -70,7 +70,8 @@ export function serialize(a, b, c) {
     const allPromise = Promise.all([promise1, promse2, promise3]);
 
     allPromise.then(values => {
-        console.log(total);
+        res=values;
+        console.log(values);
     }).catch(error => {
         console.log("error");
     });
